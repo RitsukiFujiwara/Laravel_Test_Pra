@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::resource('contacts','ContactFormController')->only([
+//     'index', 'show'
+// ]);
+
+Route::group(['prefix' => 'contact', 'middleware' => 'auth'],function(){
+    Route::get('index', 'ContactFormController@index')->name('contact.index');
+});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
